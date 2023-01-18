@@ -56,6 +56,8 @@ const posts = [
     }
 ];
 
+let counterLike = 0;
+
 for (let index = 0; index < posts.length; index++) {
     let container = document.getElementById("container");
 
@@ -148,7 +150,7 @@ for (let index = 0; index < posts.length; index++) {
     //Like__counter
     let likeCounter = document.createElement("div");
     likeCounter.classList.add("like__counter");
-    likeCounter.innerHTML = "Piace a " + "persone";
+    likeCounter.innerHTML = "Piace a " + posts[index]["likes"] + " persone";
     likes.append(likeCounter);
 
 
@@ -156,11 +158,17 @@ for (let index = 0; index < posts.length; index++) {
     likeButton.addEventListener("click", 
           
         function () {
+
             if (likeButton.classList.contains("like-button--liked")) {
                 likeButton.classList.remove("like-button--liked");
+                counterLike--;
+                likeCounter.innerHTML = "Piace a " + (posts[index]["likes"] - counterLike)  + " persone";
+
             }
             else {
-                likeButton.classList.add("like-button--liked")
+                likeButton.classList.add("like-button--liked");
+                counterLike++;
+                likeCounter.innerHTML = "Piace a " + (counterLike + posts[index]["likes"])  + " persone";
             } 
         }
     )

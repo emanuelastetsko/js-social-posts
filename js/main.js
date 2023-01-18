@@ -55,3 +55,72 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+for (let index = 0; index < posts.length; index++) {
+    let container = document.getElementById("container");
+
+    // Post
+    let post = document.createElement("div");
+    post.classList.add("post");
+    container.append(post);
+
+    // Post__header 
+    let postHeader = document.createElement("div");
+    postHeader.classList.add("post__header");
+    post.append(postHeader);
+
+    // Post-meta
+    let postMeta = document.createElement("div");
+    postMeta.classList.add("post-meta");
+    postHeader.append(postMeta);
+
+    // Post-meta__icon 
+    let postMetaIcon = document.createElement("div");
+    postMetaIcon.classList.add("post-meta__icon");
+    postMeta.append(postMetaIcon);
+
+    // Profile-pic
+    let profilePic = document.createElement("img");
+    profilePic.classList.add("profile-pic");
+    profilePic.src = posts[index]["author"]["image"];
+    postMetaIcon.append(profilePic);
+
+    // Post-meta__data
+    let postMetaData = document.createElement("div");
+    postMetaData.classList.add("post-meta__data");
+    postMeta.append(postMetaData);
+
+    // Post-meta__author
+    let postMetaAuthor = document.createElement("div");
+    postMetaAuthor.classList.add("post-meta__author");
+    postMetaAuthor.innerHTML = posts[index]["author"]["name"];
+    postMetaData.append(postMetaAuthor);
+
+    // Post-meta__time
+    let postMetaTime = document.createElement("div");
+    postMetaTime.classList.add("post-meta__time");
+    postMetaTime.innerHTML = posts[index]["created"];  //!!! Calcolare poi quanto tempo è passato
+    postMetaData.append(postMetaTime);
+
+    // Post__text 
+    let postText = document.createElement("div");
+    postText.classList.add("post__text");
+    postText.innerHTML = posts[index]["content"];
+    post.append(postText);
+
+    // Post__image 
+    let postImage = document.createElement("div");
+    postImage.classList.add("post__image");
+    post.append(postImage);
+
+    // Image
+    let img = document.createElement("img");
+    img.src = posts[index]["media"];
+    postImage.append(img);
+
+    // Post__footer 
+    let postFooter = document.createElement("div");
+    postFooter.classList.add("post__footer");
+    post.append(postFooter);
+
+}

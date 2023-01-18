@@ -152,4 +152,16 @@ for (let index = 0; index < posts.length; index++) {
     likes.append(likeCounter);
 
 
+    // Al click del bottone cambiare il colore a quest'ultimo
+    likeButton.addEventListener("click", 
+          
+        function () {
+            if (likeButton.classList.contains("like-button--liked")) {
+                likeButton.classList.remove("like-button--liked");
+            }
+            else {
+                likeButton.classList.add("like-button--liked")
+            } 
+        }
+    )
 }

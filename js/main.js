@@ -123,4 +123,33 @@ for (let index = 0; index < posts.length; index++) {
     postFooter.classList.add("post__footer");
     post.append(postFooter);
 
+    // Likes
+    let likes = document.createElement("div");
+    likes.classList.add("likes");
+    postFooter.append(likes);
+
+    // Likes__cta
+    let likesCta = document.createElement("div");
+    likesCta.classList.add("likes_cta");
+    likes.append(likesCta);
+
+    // Like-button 
+    let likeButton = document.createElement("a");
+    likeButton.classList.add("like-button");
+    likeButton.innerHTML += `<i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>`;
+    likesCta.append(likeButton);
+
+    // Like-button-label
+    let likeButtonLabel = document.createElement("span");
+    likeButtonLabel.classList.add("like-button__label");
+    likeButtonLabel.innerHTML = " Mi piace";
+    likeButton.append(likeButtonLabel);
+
+    //Like__counter
+    let likeCounter = document.createElement("div");
+    likeCounter.classList.add("like__counter");
+    likeCounter.innerHTML = "Piace a " + "persone";
+    likes.append(likeCounter);
+
+
 }

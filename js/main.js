@@ -56,6 +56,10 @@ const posts = [
     }
 ];
 
+// Array con lista di id dei post piaciuti
+let postsLiked = [];
+
+// Contatore dei like
 let counterLike = 0;
 
 for (let index = 0; index < posts.length; index++) {
@@ -169,6 +173,8 @@ for (let index = 0; index < posts.length; index++) {
                 likeButton.classList.add("like-button--liked");
                 counterLike++;
                 likeCounter.innerHTML = "Piace a " + (counterLike + posts[index]["likes"])  + " persone";
+                postsLiked.push(posts[index]["id"]);
+                console.log("postsLiked", postsLiked);
             } 
         }
     )
